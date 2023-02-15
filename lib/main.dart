@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: _theme(),
       routes: {
-        AppRoutes.HOME : (ctx) => const CategoriesScreen(),
-        AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
+        AppRoutes.HOME : (_) =>  const CategoriesScreen(),
+        AppRoutes.CATEGORIES_MEALS: (_) => CategoriesMealsScreen(),
       },
     );
   }
