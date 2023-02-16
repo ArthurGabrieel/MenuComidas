@@ -1,5 +1,8 @@
+import 'package:comidas/components/meal_detail_screen.dart';
 import 'package:comidas/screens/categories_meals_screen.dart';
 import 'package:comidas/screens/categories_screen.dart';
+import 'package:comidas/screens/settings_screen.dart';
+import 'package:comidas/screens/tabs_screen.dart';
 import 'package:comidas/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: _theme(),
       routes: {
-        AppRoutes.HOME : (_) =>  const CategoriesScreen(),
+        AppRoutes.HOME : (_) =>  TabsScreen(),
         AppRoutes.CATEGORIES_MEALS: (_) => CategoriesMealsScreen(),
+        AppRoutes.MEAL_DETAIL: (_) => MealDetailScreen(),
+        AppRoutes.SETTINGS: (_) => const SettingsScreen(),
       },
     );
   }

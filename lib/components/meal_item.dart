@@ -11,7 +11,7 @@ class MealItem extends StatelessWidget {
 
   void _selectMeal(BuildContext context) {
     Navigator.of(context).pushNamed(
-        AppRoutes.CATEGORIES_MEALS,
+        AppRoutes.MEAL_DETAIL,
         arguments: meal,
     );
   }
@@ -19,7 +19,7 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => _selectMeal,
+      onTap: () => _selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
