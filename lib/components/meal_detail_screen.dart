@@ -27,6 +27,11 @@ Widget _createSectionContainer(Widget child) {
 }
 
 class MealDetailScreen extends StatelessWidget {
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) isFavorite;
+
+  MealDetailScreen(this.onToggleFavorite, this.isFavorite);
+
   @override
   Widget build(BuildContext context) {
     final Meal meal = ModalRoute.of(context)!.settings.arguments as Meal;
@@ -91,10 +96,9 @@ class MealDetailScreen extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.star, color: Colors.black),
-          onPressed: () {
-            Navigator.of(context).pop(meal.id);
-          },
+          child: Icon((isFavorite(meal) ? Icons.star : Icons.star_border),
+              color: Colors.black),
+          onPressed: () => onToggleFavorite(meal),
         ));
   }
 }
